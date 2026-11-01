@@ -1,0 +1,8 @@
+{
+  "gitea_version": "28.2.0",
+  "repository": "e2e-owner/work-notes",
+  "private": true,
+  "hook_id": 1,
+  "webhook_target": "http://app:8096/hooks/gitea",
+  "read_token_scope": "read:repository"
+}

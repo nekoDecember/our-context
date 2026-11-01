@@ -1,0 +1,262 @@
+{
+  "revision": "3dc448399572bdc8c1ae054d991ee94587530022",
+  "last_publish": "2026-11-01T11:56:51.762698+00:00",
+  "worker_online": true,
+  "pages": [
+    {
+      "id": "context_database_access",
+      "type": "context",
+      "title": "顧客検索の結合テストにおけるデータベース接続問題",
+      "summary": "顧客検索の結合テストが停止している理由。",
+      "data": {
+        "kind": "constraint",
+        "subject_ids": [
+          "task_search_test"
+        ],
+        "speaker_id": "person_tanaka",
+        "recorder_id": "person_sato",
+        "attribution": "reported_statement",
+        "occurred_at": "2026-11-01",
+        "confirmation_state": "confirmed",
+        "resolution_state": "open"
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "田中さんが「検証用データベースの接続権限が足りず、テストを開始できずに困っている」と話した。顧客検索の結合テストは現在停止中。"
+        }
+      ],
+      "links": [
+        "task_search_test"
+      ],
+      "updated_at": "2026-11-01T11:56:50.066595+00:00",
+      "body": "田中さんが「検証用データベースの接続権限が足りず、テストを開始できずに困っている」と話した。\n"
+    },
+    {
+      "id": "person_sato",
+      "type": "person",
+      "title": "佐藤",
+      "summary": "佐藤は「顧客検索の結合テストの記録」を担当した。",
+      "data": {
+        "role": null,
+        "team_ids": [],
+        "project_ids": [
+          "project_search"
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "このメモは佐藤が記録した。"
+        }
+      ],
+      "links": [
+        "project_search",
+        "task_search_test",
+        "context_database_access"
+      ],
+      "updated_at": "2026-11-01T11:56:50.066603+00:00",
+      "body": "佐藤は「顧客検索の結合テストの記録」を担当した。\n"
+    },
+    {
+      "id": "person_tanaka",
+      "type": "person",
+      "title": "田中さん",
+      "summary": "業務基盤チームのメンバーで、顧客検索の結合テストを担当。",
+      "data": {
+        "role": null,
+        "team_ids": [
+          "team_platform"
+        ],
+        "project_ids": [
+          "project_search"
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "業務基盤チームは検索基盤刷新プロジェクトを担当する。チームメンバーは田中さん。"
+        },
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "田中さんは「顧客検索の結合テスト」を担当する。チケット番号は RM-6842。"
+        }
+      ],
+      "links": [
+        "project_search",
+        "task_search_test"
+      ],
+      "updated_at": "2026-11-01T11:56:50.066578+00:00",
+      "body": "顧客検索の結合テストを担当。チケット番号は RM-6842。\n"
+    },
+    {
+      "id": "project_search",
+      "type": "project",
+      "title": "検索基盤刷新プロジェクト",
+      "summary": "顧客検索の応答時間を短縮することを目的としたプロジェクト。",
+      "data": {
+        "purpose": "顧客検索の応答時間を短縮すること",
+        "team_ids": [
+          "team_platform"
+        ],
+        "member_ids": [
+          "person_tanaka"
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "業務基盤チームは検索基盤刷新プロジェクトを担当する。チームメンバーは田中さん。"
+        }
+      ],
+      "links": [],
+      "updated_at": "2026-11-01T11:56:50.063913+00:00",
+      "body": "業務基盤チームが担当するプロジェクト。顧客検索の結合テストが予定されている。\n"
+    },
+    {
+      "id": "task_search_test",
+      "type": "task",
+      "title": "顧客検索の結合テスト",
+      "summary": "顧客検索の応答時間を短縮するための結合テスト。",
+      "data": {
+        "project_id": "project_search",
+        "assignee_ids": [
+          "person_tanaka"
+        ],
+        "status": "blocked",
+        "plan_start": "2026-11-02",
+        "plan_end": "2026-11-03",
+        "deadline": null,
+        "ticket": "RM-6842",
+        "completion_criteria": null,
+        "dependency_ids": [],
+        "events": [
+          {
+            "date": "2026-11-01",
+            "description": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。",
+            "source_id": "src_180d8361fe744e449f9b"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。締め切りは未定で、田中さんへの確認が必要。"
+        }
+      ],
+      "links": [
+        "project_search",
+        "context_database_access"
+      ],
+      "updated_at": "2026-11-01T11:56:50.066587+00:00",
+      "body": "2026-11-02から2026-11-03に実施予定。チケット番号は RM-6842。現在停止中。\n"
+    },
+    {
+      "id": "team_platform",
+      "type": "team",
+      "title": "業務基盤チーム",
+      "summary": "検索基盤刷新プロジェクトを担当するチーム。",
+      "data": {
+        "member_ids": [
+          "person_tanaka"
+        ],
+        "project_ids": [
+          "project_search"
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "業務基盤チームは検索基盤刷新プロジェクトを担当する。チームメンバーは田中さん。"
+        }
+      ],
+      "links": [
+        "project_search"
+      ],
+      "updated_at": "2026-11-01T11:56:50.066570+00:00",
+      "body": "チームメンバーは田中さん。顧客検索の結合テストを担当する。\n"
+    }
+  ],
+  "scope_members": {
+    "team_platform": [
+      "person_tanaka",
+      "project_search",
+      "team_platform"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "task_search_test",
+      "title": "顧客検索の結合テスト",
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。締め切りは未定で、田中さんへの確認が必要。"
+        }
+      ],
+      "project_id": "project_search",
+      "assignee_ids": [
+        "person_tanaka"
+      ],
+      "status": "blocked",
+      "plan_start": "2026-11-02",
+      "plan_end": "2026-11-03",
+      "deadline": null,
+      "ticket": "RM-6842",
+      "completion_criteria": null,
+      "dependency_ids": [],
+      "events": [
+        {
+          "date": "2026-11-01",
+          "description": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。",
+          "source_id": "src_180d8361fe744e449f9b"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_69338e1d68044b3a9f4a",
+      "semantic_key": "task_search_test:deadline",
+      "data": {
+        "semantic_key": "task_search_test_deadline",
+        "subject_id": "task_search_test",
+        "field": "deadline",
+        "question": "顧客検索の結合テストの締め切りは未定ですが、具体的な日程が決まるまでに何が必要か？",
+        "reason": "具体的な締め切りが未定で、作業の完了が遅れる可能性がある。",
+        "impact": "作業の完了が遅れると、プロジェクト全体のスケジュールに影響が出る可能性がある。",
+        "priority": "math",
+        "evidence": [
+          {
+            "source_id": "src_180d8361fe744e449f9b",
+            "quote": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。締め切りは未定で、田中さんへの確認が必要。"
+          }
+        ],
+        "fingerprint": "7707688bdee7e1a24ff5d8195bd27c79e0e1c0962347788b453e272e3edd5a23"
+      },
+      "status": "open",
+      "version": 1,
+      "answer_source": null,
+      "snooze_until": null,
+      "updated": 1793534211.8738372
+    }
+  ],
+  "settings": {
+    "llm_url": "http://litellm:4000/v1",
+    "ingest_model": "e2e-local",
+    "query_model": "e2e-local",
+    "llm_key_set": true,
+    "gitea_url": "http://gitea:3000",
+    "gitea_repo": "e2e-owner/work-notes",
+    "gitea_branch": "main",
+    "allowed_paths": [
+      "work-log.md",
+      "context/*.md"
+    ],
+    "gitea_token_set": true,
+    "webhook_secret_set": true,
+    "public_url": "http://192.168.1.8:19096",
+    "timezone": "Asia/Tokyo",
+    "sync_interval": 86400
+  }
+}

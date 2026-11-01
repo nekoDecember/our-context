@@ -1,0 +1,20 @@
+.env
+.env.*
+!.env.example
+workspace/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+tests/e2e/.runtime/
+
+# ローカルの秘密情報と証明書
+secrets/
+credentials*.json
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store

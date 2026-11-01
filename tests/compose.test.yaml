@@ -1,0 +1,39 @@
+name: our-context-check
+x-app: &app
+  image: our-context:local
+  environment: &env
+    WORKSPACE_DIR: /workspace
+    APP_PASSWORD: integration-only
+    APP_PUBLIC_URL: http://localhost:18096
+    GITEA_BASE_URL: http://fixture:9080
+    GITEA_REPO: team/notes
+    GITEA_BRANCH: main
+    GITEA_ALLOWED_PATHS: work-log.md
+    GITEA_WEBHOOK_SECRET: fixture-secret
+    LLM_BASE_URL: http://fixture:9080/v1
+    LLM_INGEST_MODEL: fixture
+    LLM_QUERY_MODEL: fixture
+    SYNC_INTERVAL_SECONDS: 900
+  volumes:
+    - test-workspace:/workspace
+    - ./:/tests:ro
+services:
+  fixture:
+    image: our-context:local
+    command: ["python", "/fixtures/fake_services.py"]
+    volumes:
+      - ./:/fixtures:ro
+  app:
+    <<: *app
+    command: ["uvicorn", "our_context.api:app", "--host", "0.0.0.0", "--port", "8096"]
+    ports: ["127.0.0.1:18096:8096"]
+  worker:
+    <<: *app
+    command: ["python", "-m", "our_context.worker"]
+volumes:
+  test-workspace:
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${OUR_CONTEXT_TEST_SUBNET:-10.203.15.0/24}

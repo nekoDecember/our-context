@@ -1,0 +1,9 @@
+[project]
+name = "our-context"
+version = "0.1.0"
+requires-python = ">=3.12"
+description = "Obsidian と Gitea から業務の文脈を蓄積する LLM Wiki"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

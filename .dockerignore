@@ -1,0 +1,8 @@
+.env
+workspace
+.git
+**/node_modules
+**/__pycache__
+.pytest_cache
+tests/e2e/.env
+tests/e2e/.runtime

@@ -1,0 +1,19 @@
+{
+  "ollama_version": "0.40.13",
+  "model": "qwen2.5:7b-instruct",
+  "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "size_bytes": 4683087332,
+  "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen2",
+    "families": [
+      "qwen2"
+    ],
+    "parameter_size": "7.6B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 3584,
+    "runner": "ggml"
+  }
+}

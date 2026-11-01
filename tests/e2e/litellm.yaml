@@ -1,0 +1,12 @@
+model_list:
+  - model_name: e2e-local
+    litellm_params:
+      model: ollama_chat/qwen2.5:7b-instruct
+      api_base: http://host.lima.internal:11436
+      temperature: 0.2
+      num_ctx: 16384
+      keep_alive: 2m
+    model_info:
+      supports_function_calling: true
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY

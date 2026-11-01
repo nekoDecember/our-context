@@ -1,0 +1,204 @@
+{
+  "started": "2026-11-01T11:54:07.582048+00:00",
+  "mode": "live-model",
+  "model": "e2e-local",
+  "steps": [
+    {
+      "step": "実 LiteLLM の推論とツール呼び出し",
+      "elapsed_seconds": 20.27,
+      "response": "connected",
+      "tool_calling": true,
+      "usage": {
+        "calls": 2,
+        "prompt_tokens": 184,
+        "completion_tokens": 22,
+        "schema_fallbacks": 0
+      }
+    },
+    {
+      "step": "Gitea が push を通知",
+      "elapsed_seconds": 23.23,
+      "commit": "bc2cea2e8a77c7679753374da995d99a2145b02c",
+      "delivery_id": "fc553dbe-decb-47a0-80ef-e72b843d81e2",
+      "job_id": "job_9622243a0421414e8e6a"
+    },
+    {
+      "step": "Gitea の配信成功を照合",
+      "elapsed_seconds": 165.58,
+      "delivery_id": "fc553dbe-decb-47a0-80ef-e72b843d81e2",
+      "revision": "3dc448399572bdc8c1ae054d991ee94587530022",
+      "pages": 6,
+      "sources": [
+        "src_180d8361fe744e449f9b"
+      ],
+      "usage": {
+        "calls": 2,
+        "prompt_tokens": 3465,
+        "completion_tokens": 2060,
+        "schema_fallbacks": 0
+      }
+    },
+    {
+      "step": "メモを Wiki に整理",
+      "elapsed_seconds": 167.24,
+      "pages": 6,
+      "page_types": [
+        "context",
+        "person",
+        "project",
+        "task",
+        "team"
+      ],
+      "task_id": "task_search_test",
+      "task_status": "blocked",
+      "first_commit": "bc2cea2e8a77c7679753374da995d99a2145b02c"
+    },
+    {
+      "step": "業務の文脈を参照して回答",
+      "elapsed_seconds": 229.06,
+      "answer": "田中さんは現在、顧客検索の結合テストを担当しており、そのテストを開始するための検証用データベースの接続権限が足りないという問題に直面しています。これは「顧客検索の結合テスト」（チケット番号：RM-6842）が停止している理由です。",
+      "citations": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "田中さんが「検証用データベースの接続権限が足りず、テストを開始できずに困っている」と話した。顧客検索の結合テストは現在停止中。"
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 6851,
+        "completion_tokens": 574,
+        "schema_fallbacks": 0
+      }
+    },
+    {
+      "step": "相談からガントを表示",
+      "elapsed_seconds": 236.39,
+      "tools": [
+        {
+          "type": "gantt",
+          "project_id": "project_search",
+          "revision": "3dc448399572bdc8c1ae054d991ee94587530022"
+        }
+      ]
+    },
+    {
+      "step": "確認への回答を Wiki と予定へ反映",
+      "elapsed_seconds": 238.22,
+      "deadline": "2026-11-06"
+    },
+    {
+      "step": "Gitea が push を通知",
+      "elapsed_seconds": 249.9,
+      "commit": "0117a953a5c167de983678f74e1444897ade21b9",
+      "delivery_id": "075bb148-91d3-424e-be74-9f5f101ab004",
+      "job_id": "job_fc34686063cd48c0ab7e"
+    },
+    {
+      "step": "Gitea の配信成功を照合",
+      "elapsed_seconds": 282.95,
+      "delivery_id": "075bb148-91d3-424e-be74-9f5f101ab004",
+      "revision": "cbd81c5bbb13c4ff518737ddb99ea86e2dff228c",
+      "pages": 6,
+      "sources": [
+        "src_6c284126a86f40e39354"
+      ],
+      "usage": {
+        "calls": 1,
+        "prompt_tokens": 1090,
+        "completion_tokens": 422,
+        "schema_fallbacks": 0
+      }
+    },
+    {
+      "step": "同じノートへの追記を反映",
+      "elapsed_seconds": 283.02,
+      "second_commit": "0117a953a5c167de983678f74e1444897ade21b9",
+      "status": "in_progress",
+      "deadline": "2026-11-06"
+    },
+    {
+      "step": "追記後の状況を出典付きで回答",
+      "elapsed_seconds": 311.67,
+      "answer": "2026-11-02の最新の追記では、田中さんの接続権限の困りごとは解決しました。彼が検証用データベースの接続権限を取得できました。これにより、顧客検索の結合テストは進行中です。テストは2026年11月2日から3日にかけて実施予定で、締め切りは2026年11月6日です。",
+      "citations": [
+        {
+          "source_id": "src_6c284126a86f40e39354",
+          "quote": "顧客検索の結合テストは着手済みで、進行中。"
+        },
+        {
+          "source_id": "src_440b1f2fc9ed4906a0bb",
+          "quote": "顧客検索の結合テストの締め切りは2026-11-06です。"
+        }
+      ],
+      "usage": {
+        "calls": 2,
+        "prompt_tokens": 4920,
+        "completion_tokens": 279,
+        "schema_fallbacks": 0
+      }
+    },
+    {
+      "step": "変更案を確認して予定を適用",
+      "elapsed_seconds": 312.94,
+      "proposal_id": "proposal_a40c5968ad04421585d5",
+      "plan_start": "2026-11-04",
+      "plan_end": "2026-11-05"
+    },
+    {
+      "step": "Excel と報告文を出力",
+      "elapsed_seconds": 316.55,
+      "sheets": [
+        "出力条件",
+        "タスク",
+        "進捗",
+        "困りごと・確認事項"
+      ],
+      "bytes": 8191
+    },
+    {
+      "step": "相談から Excel を作成",
+      "elapsed_seconds": 323.97,
+      "tools": [
+        {
+          "type": "export",
+          "id": "export_9a79571227164c829dda",
+          "url": "/api/v1/exports/export_9a79571227164c829dda/download",
+          "revision": "b74e1b9099c8bae464729c6536cf38509b8de1e6",
+          "filters": {
+            "scope": "",
+            "project_id": "project_search",
+            "start": "2026-11-01",
+            "end": "2026-11-07",
+            "format": "xlsx"
+          },
+          "format": "xlsx",
+          "text": "# 業務報告\n\n対象期間：2026-11-01 ～ 2026-11-07\n参照版：b74e1b9099c8bae464729c6536cf38509b8de1e6\n\n## 期間内の記録\n\n- 2026-11-01 顧客検索の結合テスト：顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。\n- 2026-11-02 顧客検索の結合テスト：顧客検索の結合テストは着手済みで、進行中。\n\n## 現在のタスク\n\n- 顧客検索の結合テスト（RM-6842）：進行中。担当：田中さん。予定 2026-11-04 ～ 2026-11-05。締め切り：2026-11-06。\n\n## 困りごと・所感\n\n\n## 確認事項\n"
+        }
+      ]
+    },
+    {
+      "step": "相談を Wiki に保存",
+      "elapsed_seconds": 325.03
+    },
+    {
+      "step": "Wiki を点検",
+      "elapsed_seconds": 360.4,
+      "issues": [
+        {
+          "page_id": "analysis_msg_1d9d4093e16f4c448500",
+          "message": "他のページからの参照を確認する。"
+        },
+        {
+          "message": "顧客検索の結合テストは現在停止中。",
+          "page_id": "context_database_access"
+        }
+      ]
+    },
+    {
+      "step": "一連のテスト完了",
+      "elapsed_seconds": 360.42,
+      "result": "passed"
+    }
+  ],
+  "result": "passed"
+}

@@ -1,0 +1,68 @@
+{
+  "result": "passed",
+  "revision": "9a888a282e95a7b3dbb3613b2aa129705febd56e",
+  "deliveries": [
+    {
+      "commit": "bc2cea2e8a77c7679753374da995d99a2145b02c",
+      "delivery_id": "fc553dbe-decb-47a0-80ef-e72b843d81e2",
+      "job_id": "job_9622243a0421414e8e6a",
+      "http_status": 202
+    },
+    {
+      "commit": "0117a953a5c167de983678f74e1444897ade21b9",
+      "delivery_id": "075bb148-91d3-424e-be74-9f5f101ab004",
+      "job_id": "job_fc34686063cd48c0ab7e",
+      "http_status": 202
+    }
+  ],
+  "citations_match_originals": true,
+  "pages": 7,
+  "sources": 4,
+  "tasks": [
+    {
+      "id": "task_search_test",
+      "title": "顧客検索の結合テスト",
+      "evidence": [
+        {
+          "source_id": "src_180d8361fe744e449f9b",
+          "quote": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。締め切りは未定で、田中さんへの確認が必要。"
+        },
+        {
+          "source_id": "src_440b1f2fc9ed4906a0bb",
+          "quote": "質問：顧客検索の結合テストの締め切りは未定ですが、具体的な日程が決まるまでに何が必要か？\n対象：task_search_test\n回答：顧客検索の結合テストの締め切りは2026-11-06です。"
+        },
+        {
+          "source_id": "src_6c284126a86f40e39354",
+          "quote": "顧客検索の結合テストは着手済みで、進行中。担当は引き続き田中さん。チケット番号は RM-6842。"
+        },
+        {
+          "source_id": "src_5fc5b5a1ddc44e0c9bfa",
+          "quote": "利用者が次の変更を確定した。\n{\"revision\":\"cbd81c5bbb13c4ff518737ddb99ea86e2dff228c\",\"operations\":[{\"task_id\":\"task_search_test\",\"set\":{\"plan_start\":\"2026-11-04\",\"plan_end\":\"2026-11-05\"}}],\"impacts\":[{\"task_id\":\"task_search_test\",\"title\":\"顧客検索の結合テスト\",\"set\":{\"plan_start\":\"2026-11-04\",\"plan_end\":\"2026-11-05\"}}],\"warnings\":[],\"assumptions\":[\"日数は暦日で計算する。\"],\"reason\":\"検証用に日程を変更\"}"
+        }
+      ],
+      "project_id": "project_search",
+      "assignee_ids": [
+        "person_tanaka"
+      ],
+      "status": "in_progress",
+      "plan_start": "2026-11-04",
+      "plan_end": "2026-11-05",
+      "deadline": "2026-11-06",
+      "ticket": "RM-6842",
+      "completion_criteria": null,
+      "dependency_ids": [],
+      "events": [
+        {
+          "date": "2026-11-01",
+          "description": "顧客検索の結合テストは2026-11-02から2026-11-03に実施する予定。",
+          "source_id": "src_180d8361fe744e449f9b"
+        },
+        {
+          "date": "2026-11-02",
+          "description": "顧客検索の結合テストは着手済みで、進行中。",
+          "source_id": "src_6c284126a86f40e39354"
+        }
+      ]
+    }
+  ]
+}

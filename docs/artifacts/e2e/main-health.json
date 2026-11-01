@@ -1,0 +1,14 @@
+{
+  "url": "http://192.168.1.8:8096",
+  "page_http": 200,
+  "health_http": 200,
+  "login_http": 200,
+  "bootstrap_http": 200,
+  "guide_http": 200,
+  "worker_online": true,
+  "preserved_revision": "0ad4f2cbfaba8b57916856669443b1ef0a435e70",
+  "sources": 0,
+  "questions": 0,
+  "pages": 0,
+  "scope": "この Mac から LAN IP への接続"
+}

@@ -1,0 +1,56 @@
+name: our-context-e2e
+x-app: &app
+  image: our-context:local
+  env_file: .env
+  environment:
+    WORKSPACE_DIR: /workspace
+  volumes:
+    - app-data:/workspace
+    - ../../:/source:ro
+    - ./.runtime:/evidence
+    - gitea-data:/gitea-data:ro
+  restart: unless-stopped
+  init: true
+services:
+  gitea:
+    image: docker.gitea.com/gitea:28.2.0@sha256:30777c91280d973fa02be48b1ade735bd6859e8f6f7af3b4444d519437852504
+    environment:
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__security__INSTALL_LOCK: "true"
+      GITEA__security__ALLOWED_HOST_LIST: app:8096,10.203.16.0/24
+      GITEA__service__DISABLE_REGISTRATION: "true"
+      GITEA__server__ROOT_URL: http://gitea:3000/
+      GITEA__server__DISABLE_SSH: "true"
+      GITEA__repository__DEFAULT_BRANCH: main
+      GITEA__actions__ENABLED: "false"
+      E2E_GITEA_PASSWORD: ${E2E_GITEA_PASSWORD}
+    volumes:
+      - gitea-data:/data
+    ports: ["127.0.0.1:13096:3000"]
+    restart: unless-stopped
+  app:
+    <<: *app
+    command: ["uvicorn", "our_context.api:app", "--host", "0.0.0.0", "--port", "8096"]
+    ports: ["0.0.0.0:19096:8096"]
+  worker:
+    <<: *app
+    command: ["python", "/source/tests/e2e/trace_worker.py"]
+  litellm:
+    image: ghcr.io/berriai/litellm:v1.106.3@sha256:74d0696a9f0afcc993c7659d246f0c542f003368298633e852228250779f1032
+    profiles: [gateway]
+    command: ["--config", "/app/e2e-config.yaml", "--port", "4000"]
+    volumes:
+      - ./litellm.yaml:/app/e2e-config.yaml:ro
+    environment:
+      LITELLM_MASTER_KEY: ${LLM_API_KEY}
+      DISABLE_ADMIN_UI: "true"
+    ports: ["127.0.0.1:14096:4000"]
+    restart: unless-stopped
+volumes:
+  gitea-data:
+  app-data:
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${E2E_SUBNET:-10.203.16.0/24}

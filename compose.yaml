@@ -1,0 +1,30 @@
+name: our-context
+x-common: &common
+  image: our-context:local
+  build: .
+  env_file: .env
+  environment:
+    WORKSPACE_DIR: /workspace
+  volumes:
+    - ./workspace:/workspace
+  restart: unless-stopped
+  init: true
+services:
+  app:
+    <<: *common
+    command: ["uvicorn", "our_context.api:app", "--host", "0.0.0.0", "--port", "8096"]
+    ports:
+      - "0.0.0.0:${APP_PORT:-8096}:8096"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8096/healthz', timeout=3)"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+  worker:
+    <<: *common
+    command: ["python", "-m", "our_context.worker"]
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${OUR_CONTEXT_SUBNET:-10.203.14.0/24}
